@@ -14,7 +14,7 @@ public abstract class Panel extends JPanel implements PanelInterface {
 
     public void showWarningMessage(String message) {
         javax.swing.JOptionPane.showMessageDialog(
-            this,
+            null,
             message,
             "Warrning",
             javax.swing.JOptionPane.WARNING_MESSAGE
@@ -23,7 +23,7 @@ public abstract class Panel extends JPanel implements PanelInterface {
 
     public void showErrorMessage(String message) {
         javax.swing.JOptionPane.showMessageDialog(
-            this,
+            null,
             message,
             "Error",
             javax.swing.JOptionPane.ERROR_MESSAGE

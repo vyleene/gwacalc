@@ -63,6 +63,11 @@ public class GPAListPanel extends Panel {
     @Override
     public void startListeners() {
         calculateButton.addActionListener(_ -> {
+            if (Subject.subjects.isEmpty()) {
+                this.showErrorMessage("GPA list is empty");
+                return;
+            }
+
             double totalWeightedPoints = 0.0;
             int totalUnits = 0;
 

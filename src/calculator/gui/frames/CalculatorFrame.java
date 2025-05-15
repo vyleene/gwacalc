@@ -12,8 +12,8 @@ public class CalculatorFrame extends JFrame {
         super(title);
 
         this.setContentPane(new CalculatorLayout());
-        this.pack();
-        this.setResizable(true);
+        this.setSize(600, 500);
+        this.setResizable(false);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -21,29 +21,27 @@ public class CalculatorFrame extends JFrame {
         this.setJMenuBar(createMenuBar());
     }
 
-    @SuppressWarnings("unused")
     private JMenuBar createMenuBar() {
         JMenuBar menuBar = new JMenuBar();
 
-        JMenu optionsMenu = new JMenu("Options");
-        JMenuItem percentageItem = new JMenuItem("Percentage");
-        JMenu themesMenu = new JMenu("Themes");
-        JMenuItem lightThemeItem = new JMenuItem("Light Mode");
-        JMenuItem darkThemeItem = new JMenuItem("Dark Mode");
+        JMenu moreMenu = new JMenu("Menu");
+        JMenuItem percentageItem = new JMenuItem("System");
+        JMenuItem aboutItem = new JMenuItem("About");
+        JMenuItem exitItem = new JMenuItem("Exit");
 
-        percentageItem.addActionListener(e -> {
+        percentageItem.addActionListener(_ -> {
             new PercentageFrame();
         });
 
-        themesMenu.add(lightThemeItem);
-        themesMenu.add(darkThemeItem);
+        exitItem.addActionListener(_ -> {
+            this.dispose();
+        });
 
-        optionsMenu.add(percentageItem);
-        optionsMenu.add(themesMenu);
+        moreMenu.add(percentageItem);
+        moreMenu.add(aboutItem);
+        moreMenu.add(exitItem);
 
-        JMenu aboutMenu = new JMenu("About");
-        menuBar.add(optionsMenu);
-        menuBar.add(aboutMenu);
+        menuBar.add(moreMenu);
 
         return menuBar;
     }

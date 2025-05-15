@@ -3,26 +3,33 @@ package calculator.gui.panels;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.Insets;
 
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import calculator.gui.interfaces.PanelInterface;
+import calculator.Calculator;
+import calculator.backend.Config;
+import calculator.gui.abstracts.Panel;
 
-public class MessagePanel extends JPanel implements PanelInterface {
+public class MessagePanel extends Panel {
     private static JLabel label;
-    private JButton submitBtn;
+    private JButton toggleButton;
+
+    private Image sunIcon;
+    private Image moonIcon;
 
     public MessagePanel() {
-        super(new BorderLayout());
-        
-        createComponents();
+        super();
+        this.setLayout(new BorderLayout());
     }
 
+    @Override
     public void createComponents() {
         this.setBorder(BorderFactory.createLineBorder(Color.GRAY));
 
@@ -30,17 +37,34 @@ public class MessagePanel extends JPanel implements PanelInterface {
         label.setBorder(new EmptyBorder(5, 10, 5, 5));
         this.add(label, BorderLayout.CENTER);
 
-        submitBtn = new JButton("➕");
-        submitBtn.setMargin(new Insets(5, 10, 5, 10));
-        this.add(submitBtn, BorderLayout.EAST);
+        toggleButton = new JButton();
+        toggleButton.setMargin(new Insets(5, 10, 5, 10));
+
+        try {
+            Image sunImg = ImageIO.read(getClass().getResource("/calculator/gui/icons/sun.png"));
+            Image moonImg = ImageIO.read(getClass().getResource("/calculator/gui/icons/moon.png"));
+            
+            sunIcon = sunImg.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+            moonIcon = moonImg.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+
+            toggleButton.setIcon(new ImageIcon((Config.isDarkMode) ? moonIcon : sunIcon));
+        } catch (Exception e) {}
+
+        this.add(toggleButton, BorderLayout.EAST);
 
         this.setPreferredSize(new Dimension(0, 40));
     }
 
-    @SuppressWarnings("unused")
+    @Override
     public void startListeners() {
-        submitBtn.addActionListener(e -> {
+        toggleButton.addActionListener(_ -> {
+            Config.isDarkMode = !Config.isDarkMode;
+    
+            Calculator.setLaF();
 
+            toggleButton.setIcon(new ImageIcon((Config.isDarkMode) ? moonIcon : sunIcon));
+
+            javax.swing.SwingUtilities.updateComponentTreeUI(this.getTopLevelAncestor());
         });
     }
 

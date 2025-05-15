@@ -9,16 +9,15 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
 import calculator.backend.Config;
 import calculator.backend.Subject;
-import calculator.gui.interfaces.PanelInterface;
+import calculator.gui.abstracts.Panel;
 
-public class GPAConversionPanel extends JPanel implements PanelInterface {
+public class GPAConversionPanel extends Panel {
     private GridBagConstraints gbc;
 
     private JComboBox<String> subjectsComboBox;
@@ -35,18 +34,19 @@ public class GPAConversionPanel extends JPanel implements PanelInterface {
     private JButton convertAndInsertButton;
 
     public GPAConversionPanel() {
-        super(new GridBagLayout());
+        super();
+        this.setLayout(new GridBagLayout());
+    }
+
+    @Override
+    public void createComponents() {
+        this.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.GRAY), "Calculate GPA"));
+
         gbc = new GridBagConstraints();
 
         gbc.insets = new Insets(5, 5, 5, 5);
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.weightx = 1.0;
-
-        createComponents();
-    }
-
-    public void createComponents() {
-        this.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.GRAY), "Calculate GPA"));
 
         JLabel subjectLabel = new JLabel("Subject:");
         subjectsComboBox = new JComboBox<>();
@@ -158,18 +158,51 @@ public class GPAConversionPanel extends JPanel implements PanelInterface {
         this.add(convertAndInsertButton, gbc);
     }
 
-    @SuppressWarnings("unused")
+    @Override
     public void startListeners() {
-        convertAndInsertButton.addActionListener(e -> {
-            String subjectName = subjectsComboBox.getSelectedItem().toString();
+        convertAndInsertButton.addActionListener(_ -> {
+            String subjectName;
+            try {
+                subjectName = subjectsComboBox.getSelectedItem().toString();
+            } catch (Exception e) {
+                this.showWarningMessage("Must select a subject");
+                return;
+            }
+
             int units = Integer.parseInt(unitsSpinner.getValue().toString());
+
+            double prelimsGrade, midtermsGrade, finalsGrade;
+            try {
+                prelimsGrade = Double.parseDouble(prelimsField.getText());
+                midtermsGrade = Double.parseDouble(midtermsField.getText());
+                finalsGrade = Double.parseDouble(finalsField.getText());
+            } catch (Exception e) {
+                this.showWarningMessage("Invalid grade(s) format");
+                return;
+            }
+
             double prelimsWeight = Double.parseDouble(prelimsWeightSpinner.getValue().toString());
             double midtermsWeight = Double.parseDouble(midtermsWeightSpinner.getValue().toString());
             double finalsWeight = Double.parseDouble(finalsWeightSpinner.getValue().toString());
 
+            if (prelimsWeight + midtermsWeight + finalsWeight != 1.00) {
+                this.showWarningMessage("Weights must sum to 1.0 (100%)");
+                return;
+            }
+
             Subject subject = new Subject(subjectName, units, prelimsWeight, midtermsWeight, finalsWeight);
             subject.setGradingSystem(Config.subjects.get(subjectName));
-            subject.setGrade(Double.parseDouble(prelimsField.getText()), Double.parseDouble(midtermsField.getText()), Double.parseDouble(finalsField.getText()));
+            subject.setGrade(prelimsGrade, midtermsGrade, finalsGrade);
+
+            double gpa = subject.calculateGradePoint();
+
+            if (gpa == -1.00) {
+                this.showErrorMessage("Grading system for the subject: " + subjectName + " is empty");
+                return;
+            } else if (gpa == -2.00) {
+                this.showErrorMessage("The following grade: " + subject.calculateGrade() + " does not have a point average");
+                return;
+            }
 
             GPAListPanel.addEntry(subject);
         });

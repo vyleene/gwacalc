@@ -1,6 +1,11 @@
 package calculator.gui.panels;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -11,21 +16,23 @@ import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
 import calculator.backend.Subject;
-import calculator.gui.interfaces.PanelInterface;
+import calculator.gui.abstracts.Panel;
 
-public class GPAListPanel extends JPanel implements PanelInterface {
+public class GPAListPanel extends Panel {
     private static JPanel entryList = new JPanel();
+    
     private GridBagConstraints gbc;
-    private JButton submitBtn;
+    private JButton calculateButton;
 
     public GPAListPanel() {
-        super(new BorderLayout());
-        gbc = new GridBagConstraints();
-
-        createComponents();
+        super();
+        this.setLayout(new BorderLayout()); 
     }
 
+    @Override
     public void createComponents() {
+        gbc = new GridBagConstraints();
+        
         entryList.setLayout(new BoxLayout(entryList, BoxLayout.Y_AXIS));
         entryList.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -33,8 +40,8 @@ public class GPAListPanel extends JPanel implements PanelInterface {
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
-        submitBtn = new JButton("CALCULATE GWA");
-        submitBtn.setFocusPainted(false);
+        calculateButton = new JButton("CALCULATE GWA");
+        calculateButton.setFocusPainted(false);
 
         JPanel wrapper = new JPanel(new GridBagLayout());
         gbc.gridx = 0;
@@ -46,16 +53,16 @@ public class GPAListPanel extends JPanel implements PanelInterface {
 
         gbc.gridy = 1;
         gbc.weighty = 0.05;
-        wrapper.add(submitBtn, gbc);
+        wrapper.add(calculateButton, gbc);
 
         this.add(wrapper, BorderLayout.CENTER);
 
         this.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.GRAY), "GPA List"));
     }
 
-    @SuppressWarnings("unused")
+    @Override
     public void startListeners() {
-        submitBtn.addActionListener(e -> {
+        calculateButton.addActionListener(_ -> {
             double totalWeightedPoints = 0.0;
             int totalUnits = 0;
 
@@ -70,7 +77,6 @@ public class GPAListPanel extends JPanel implements PanelInterface {
         });
     }
 
-    @SuppressWarnings("unused")
     public static void addEntry(Subject subject) {
         Subject.subjects.add(subject);
         JPanel row = new JPanel(new BorderLayout(10, 0));
@@ -81,7 +87,7 @@ public class GPAListPanel extends JPanel implements PanelInterface {
         removeButton.setMargin(new Insets(1, 5, 1, 5));
         removeButton.setFocusPainted(false);
 
-        removeButton.addActionListener(e -> {
+        removeButton.addActionListener(_ -> {
             removeEntry(subject, row);
         });
 

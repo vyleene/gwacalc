@@ -1,6 +1,6 @@
 package calculator.gui.interfaces;
 
 public interface PanelInterface {
-    public void createComponents();
-    public void startListeners();
+    public abstract void createComponents();
+    public abstract void startListeners();
 }

@@ -7,6 +7,7 @@ public class Subject {
     private String name;
     private int units;
     private double grade;
+    private double gpa;
     private double prelimGrade;
     private double midtermGrade;
     private double finalGrade;
@@ -59,16 +60,18 @@ public class Subject {
     }
 
     public double percentageToPoint(double percentage) {
+        if (this.gradingSystem.isEmpty()) return -1.00;
         for (List<Double> percentages : this.gradingSystem) {
-            if (percentage >= (double) percentages.get(0) && percentage <= (double) percentages.get(1)) {
+            if (!percentages.isEmpty() && (percentage >= (double) percentages.get(0) && percentage <= (double) percentages.get(1))) {
                 return percentages.get(2);
             }
         }
-        return 5.00;
+        return -2.00;
     }
     
     // Getters
     public String getSubjectName() { return name; }
     public int getUnits() { return units; }
+    public double getGPA() { return gpa; }
     public List<List<Double>> getGradingSystem() { return gradingSystem; }
 }

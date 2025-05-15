@@ -9,8 +9,8 @@ public class PercentageFrame extends JFrame {
         super();
 
         this.setContentPane(new PercentageLayout());
-        this.pack();
-        this.setResizable(true);
+        this.setSize(250, 325);
+        this.setResizable(false);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
     }

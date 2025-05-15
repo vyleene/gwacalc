@@ -1,5 +1,5 @@
 {
-    "theme": "dark",
+    "isDarkMode": true,
     "subjects": {
         "CCC102": [
             [98.0, 100.0, 1.0],

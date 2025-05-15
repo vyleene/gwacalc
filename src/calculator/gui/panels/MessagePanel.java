@@ -41,8 +41,8 @@ public class MessagePanel extends Panel {
         toggleButton.setMargin(new Insets(5, 10, 5, 10));
 
         try {
-            Image sunImg = ImageIO.read(getClass().getResource("/resources/gui/icons/sun.png"));
-            Image moonImg = ImageIO.read(getClass().getResource("/resources/gui/icons/moon.png"));
+            Image sunImg = ImageIO.read(getClass().getResource("/resources/icons/sun.png"));
+            Image moonImg = ImageIO.read(getClass().getResource("/resources/icons/moon.png"));
             
             sunIcon = sunImg.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
             moonIcon = moonImg.getScaledInstance(20, 20, Image.SCALE_SMOOTH);

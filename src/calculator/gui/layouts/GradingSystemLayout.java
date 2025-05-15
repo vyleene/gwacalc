@@ -6,8 +6,8 @@ import javax.swing.JPanel;
 import calculator.gui.abstracts.Panel;
 import calculator.gui.panels.GradingSystemPanel;
 
-public class PercentageLayout extends JPanel {
-    public PercentageLayout() {
+public class GradingSystemLayout extends JPanel {
+    public GradingSystemLayout() {
         super(new BorderLayout());
 
         Panel gsp = new GradingSystemPanel();

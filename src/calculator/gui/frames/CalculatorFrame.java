@@ -30,7 +30,7 @@ public class CalculatorFrame extends JFrame {
         JMenuItem exitItem = new JMenuItem("Exit");
 
         percentageItem.addActionListener(_ -> {
-            new PercentageFrame();
+            new GradingSystemFrame();
         });
 
         exitItem.addActionListener(_ -> {

@@ -1,5 +1,9 @@
 package ccc.gwaveraged.gui.frames;
 
+import java.awt.Image;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -10,6 +14,13 @@ import ccc.gwaveraged.gui.layouts.CalculatorLayout;
 public class CalculatorFrame extends JFrame {
     public CalculatorFrame(String title) {
         super(title);
+
+        try {
+            Image iconImg =  ImageIO.read(getClass().getResource("/resources/icons/favicon.png"));
+            this.setIconImage(iconImg);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         this.setContentPane(new CalculatorLayout());
         this.setSize(600, 500);

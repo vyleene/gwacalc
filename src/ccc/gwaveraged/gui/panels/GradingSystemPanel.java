@@ -15,8 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
-import ccc.gwaveraged.backend.Config;
 import ccc.gwaveraged.gui.abstracts.Panel;
+import ccc.gwaveraged.system.Config;
 
 public class GradingSystemPanel extends Panel {
     private static JPanel percentageList = new JPanel();

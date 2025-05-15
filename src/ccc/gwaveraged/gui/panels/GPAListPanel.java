@@ -15,8 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
-import ccc.gwaveraged.backend.Subject;
 import ccc.gwaveraged.gui.abstracts.Panel;
+import ccc.gwaveraged.system.Subject;
 
 public class GPAListPanel extends Panel {
     private static JPanel entryList = new JPanel();

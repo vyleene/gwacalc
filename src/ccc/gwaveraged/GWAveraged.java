@@ -3,8 +3,8 @@ package ccc.gwaveraged;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
-import ccc.gwaveraged.backend.Config;
 import ccc.gwaveraged.gui.GUI;
+import ccc.gwaveraged.system.Config;
 
 public class GWAveraged {
     public static void setLaF() {

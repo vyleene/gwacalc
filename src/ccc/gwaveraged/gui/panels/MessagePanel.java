@@ -14,8 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.border.EmptyBorder;
 
 import ccc.gwaveraged.GWAveraged;
-import ccc.gwaveraged.backend.Config;
 import ccc.gwaveraged.gui.abstracts.Panel;
+import ccc.gwaveraged.system.Config;
 
 public class MessagePanel extends Panel {
     private static JLabel label;

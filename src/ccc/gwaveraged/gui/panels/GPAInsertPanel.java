@@ -13,9 +13,9 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
-import ccc.gwaveraged.backend.Config;
-import ccc.gwaveraged.backend.Subject;
 import ccc.gwaveraged.gui.abstracts.Panel;
+import ccc.gwaveraged.system.Config;
+import ccc.gwaveraged.system.Subject;
 
 public class GPAInsertPanel extends Panel {
     private GridBagConstraints gbc;

@@ -21,8 +21,8 @@ public class MessagePanel extends Panel {
     private static JLabel label;
     private JButton toggleButton;
 
-    private Image sunIcon;
-    private Image moonIcon;
+    private Image sun;
+    private Image moon;
 
     public MessagePanel() {
         super();
@@ -44,10 +44,10 @@ public class MessagePanel extends Panel {
             Image sunImg = ImageIO.read(getClass().getResource("/resources/icons/sun.png"));
             Image moonImg = ImageIO.read(getClass().getResource("/resources/icons/moon.png"));
             
-            sunIcon = sunImg.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
-            moonIcon = moonImg.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+            sun = sunImg.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+            moon = moonImg.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
 
-            toggleButton.setIcon(new ImageIcon((Config.isDarkMode) ? moonIcon : sunIcon));
+            toggleButton.setIcon(new ImageIcon((Config.isDarkMode) ? moon : sun));
         } catch (Exception e) {}
 
         this.add(toggleButton, BorderLayout.EAST);
@@ -62,7 +62,7 @@ public class MessagePanel extends Panel {
     
             Calculator.setLaF();
 
-            toggleButton.setIcon(new ImageIcon((Config.isDarkMode) ? moonIcon : sunIcon));
+            toggleButton.setIcon(new ImageIcon((Config.isDarkMode) ? moon : sun));
 
             javax.swing.SwingUtilities.updateComponentTreeUI(this.getTopLevelAncestor());
         });

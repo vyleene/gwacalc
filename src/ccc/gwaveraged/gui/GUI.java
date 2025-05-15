@@ -4,6 +4,6 @@ import ccc.gwaveraged.gui.frames.CalculatorFrame;
 
 public class GUI {
     public GUI() {
-        new CalculatorFrame("GWA Calculator");
+        new CalculatorFrame("GWAveraged");
     }
 }

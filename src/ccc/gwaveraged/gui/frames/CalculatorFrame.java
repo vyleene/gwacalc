@@ -25,8 +25,7 @@ public class CalculatorFrame extends JFrame {
         JMenuBar menuBar = new JMenuBar();
 
         JMenu moreMenu = new JMenu("Menu");
-        JMenuItem percentageItem = new JMenuItem("System");
-        JMenuItem aboutItem = new JMenuItem("About");
+        JMenuItem percentageItem = new JMenuItem("Grade System");
         JMenuItem exitItem = new JMenuItem("Exit");
 
         percentageItem.addActionListener(_ -> {
@@ -38,7 +37,6 @@ public class CalculatorFrame extends JFrame {
         });
 
         moreMenu.add(percentageItem);
-        moreMenu.add(aboutItem);
         moreMenu.add(exitItem);
 
         menuBar.add(moreMenu);

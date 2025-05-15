@@ -1,5 +1,5 @@
 # GWAveraged 🎓📊
-###### [Note] Final output for the CCC102 course.
+###### [NOTE] Final output for the CCC102 course.
 
 Welcome to **GWAveraged**, the ultimate Grade Weighted Average (GWA) calculator that makes managing your academic life as easy as pie (or GPA)! Whether you're a student trying to keep track of your grades or just someone who loves calculating GPAs for fun (we don't judge), this app has got you covered.
 

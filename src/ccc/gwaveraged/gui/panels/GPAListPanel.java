@@ -5,10 +5,14 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Image;
 import java.awt.Insets;
 
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -16,6 +20,7 @@ import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
 import ccc.gwaveraged.gui.abstracts.Panel;
+import ccc.gwaveraged.system.Config;
 import ccc.gwaveraged.system.Subject;
 
 public class GPAListPanel extends Panel {
@@ -78,8 +83,47 @@ public class GPAListPanel extends Panel {
             }
 
             double gwa = totalWeightedPoints / totalUnits;
+
+            showDialog(gwa);
+
             MessagePanel.setMessage(String.format("GWA: %.2f", gwa));
         });
+    }
+
+    private void showDialog(double gwa) {
+        String message = "", title = "";
+
+        ImageIcon icon = new ImageIcon();
+        
+        try {
+            if (gwa <= 1.00 && gwa <= 1.75) {
+                title = "Congratulations!";
+                message = "Your hard work has paid off! Keep it up!";
+                icon = new ImageIcon(ImageIO.read(getClass().getResource("/resources/icons/congrats.png")).getScaledInstance(60, 60, Image.SCALE_SMOOTH));
+            } else if (gwa > 1.75 && gwa <= 2.25) {
+                title = "So close, yet so far";
+                message = "You still did a great job!";
+                icon = new ImageIcon(ImageIO.read(getClass().getResource("/resources/icons/happy.png")).getScaledInstance(60, 60, Image.SCALE_SMOOTH));
+            } else if (gwa > 2.25 && gwa <= 3.00) {
+                title = "Hanging on a thread";
+                message = "Hey, at least you survived!";
+                icon = new ImageIcon(ImageIO.read(getClass().getResource("/resources/icons/sweat.png")).getScaledInstance(60, 60, Image.SCALE_SMOOTH));
+            } else {
+                title = "Ouch";
+                message = "Better luck next time!";
+                icon = new ImageIcon(ImageIO.read(getClass().getResource("/resources/icons/sad.png")).getScaledInstance(60, 60, Image.SCALE_SMOOTH));
+            }
+
+            javax.swing.JOptionPane.showMessageDialog(
+                null,
+                String.format("GWA: %.2f. ", gwa) + message,
+                title,
+                javax.swing.JOptionPane.INFORMATION_MESSAGE,
+                icon
+            );
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void addEntry(Subject subject) {

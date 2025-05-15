@@ -1,4 +1,4 @@
-package calculator.gui.panels;
+package ccc.gwaveraged.gui.panels;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -15,8 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
-import calculator.backend.Subject;
-import calculator.gui.abstracts.Panel;
+import ccc.gwaveraged.backend.Subject;
+import ccc.gwaveraged.gui.abstracts.Panel;
 
 public class GPAListPanel extends Panel {
     private static JPanel entryList = new JPanel();

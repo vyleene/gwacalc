@@ -1,8 +1,8 @@
-package calculator.gui.frames;
+package ccc.gwaveraged.gui.frames;
 
 import javax.swing.JFrame;
 
-import calculator.gui.layouts.GradingSystemLayout;
+import ccc.gwaveraged.gui.layouts.GradingSystemLayout;
 
 public class GradingSystemFrame extends JFrame {
     public GradingSystemFrame() {

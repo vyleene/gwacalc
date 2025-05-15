@@ -1,12 +1,12 @@
-package calculator;
+package ccc.gwaveraged;
 
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
-import calculator.backend.Config;
-import calculator.gui.GUI;
+import ccc.gwaveraged.backend.Config;
+import ccc.gwaveraged.gui.GUI;
 
-public class Calculator {
+public class GWAveraged {
     public static void setLaF() {
         try {
             UIManager.setLookAndFeel(

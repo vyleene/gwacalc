@@ -1,4 +1,4 @@
-package calculator.gui.layouts;
+package ccc.gwaveraged.gui.layouts;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -8,11 +8,11 @@ import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import calculator.gui.abstracts.Panel;
-import calculator.gui.panels.GPAConversionPanel;
-import calculator.gui.panels.GPAInsertPanel;
-import calculator.gui.panels.GPAListPanel;
-import calculator.gui.panels.MessagePanel;
+import ccc.gwaveraged.gui.abstracts.Panel;
+import ccc.gwaveraged.gui.panels.GPAConversionPanel;
+import ccc.gwaveraged.gui.panels.GPAInsertPanel;
+import ccc.gwaveraged.gui.panels.GPAListPanel;
+import ccc.gwaveraged.gui.panels.MessagePanel;
 
 public class CalculatorLayout extends JPanel {
     public CalculatorLayout() {

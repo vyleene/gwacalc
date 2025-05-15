@@ -1,6 +1,6 @@
-package calculator.gui;
+package ccc.gwaveraged.gui;
 
-import calculator.gui.frames.CalculatorFrame;
+import ccc.gwaveraged.gui.frames.CalculatorFrame;
 
 public class GUI {
     public GUI() {

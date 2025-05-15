@@ -1,11 +1,11 @@
-package calculator.gui.frames;
+package ccc.gwaveraged.gui.frames;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import calculator.gui.layouts.CalculatorLayout;
+import ccc.gwaveraged.gui.layouts.CalculatorLayout;
 
 public class CalculatorFrame extends JFrame {
     public CalculatorFrame(String title) {

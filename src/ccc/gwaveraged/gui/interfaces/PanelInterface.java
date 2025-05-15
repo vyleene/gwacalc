@@ -1,4 +1,4 @@
-package calculator.gui.interfaces;
+package ccc.gwaveraged.gui.interfaces;
 
 public interface PanelInterface {
     public abstract void createComponents();

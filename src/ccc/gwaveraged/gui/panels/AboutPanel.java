@@ -1,4 +1,4 @@
-package calculator.gui.panels;
+package ccc.gwaveraged.gui.panels;
 
 import javax.swing.JPanel;
 

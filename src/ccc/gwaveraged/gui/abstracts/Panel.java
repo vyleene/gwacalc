@@ -1,8 +1,8 @@
-package calculator.gui.abstracts;
+package ccc.gwaveraged.gui.abstracts;
 
 import javax.swing.JPanel;
 
-import calculator.gui.interfaces.PanelInterface;
+import ccc.gwaveraged.gui.interfaces.PanelInterface;
 
 public abstract class Panel extends JPanel implements PanelInterface {
     public Panel() {

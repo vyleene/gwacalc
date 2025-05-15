@@ -1,4 +1,4 @@
-package calculator.backend;
+package ccc.gwaveraged.backend;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package calculator.backend;
+package ccc.gwaveraged.backend;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

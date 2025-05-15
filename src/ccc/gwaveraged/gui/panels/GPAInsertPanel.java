@@ -1,4 +1,4 @@
-package calculator.gui.panels;
+package ccc.gwaveraged.gui.panels;
 
 import java.awt.Color;
 import java.awt.GridBagConstraints;
@@ -13,9 +13,9 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
-import calculator.backend.Config;
-import calculator.backend.Subject;
-import calculator.gui.abstracts.Panel;
+import ccc.gwaveraged.backend.Config;
+import ccc.gwaveraged.backend.Subject;
+import ccc.gwaveraged.gui.abstracts.Panel;
 
 public class GPAInsertPanel extends Panel {
     private GridBagConstraints gbc;

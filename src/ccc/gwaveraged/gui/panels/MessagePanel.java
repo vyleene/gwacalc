@@ -1,4 +1,4 @@
-package calculator.gui.panels;
+package ccc.gwaveraged.gui.panels;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -13,9 +13,9 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.border.EmptyBorder;
 
-import calculator.Calculator;
-import calculator.backend.Config;
-import calculator.gui.abstracts.Panel;
+import ccc.gwaveraged.GWAveraged;
+import ccc.gwaveraged.backend.Config;
+import ccc.gwaveraged.gui.abstracts.Panel;
 
 public class MessagePanel extends Panel {
     private static JLabel label;
@@ -60,7 +60,7 @@ public class MessagePanel extends Panel {
         toggleButton.addActionListener(_ -> {
             Config.isDarkMode = !Config.isDarkMode;
     
-            Calculator.setLaF();
+            GWAveraged.setLaF();
 
             toggleButton.setIcon(new ImageIcon((Config.isDarkMode) ? moon : sun));
 

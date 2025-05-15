@@ -1,10 +1,10 @@
-package calculator.gui.layouts;
+package ccc.gwaveraged.gui.layouts;
 
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
-import calculator.gui.abstracts.Panel;
-import calculator.gui.panels.GradingSystemPanel;
+import ccc.gwaveraged.gui.abstracts.Panel;
+import ccc.gwaveraged.gui.panels.GradingSystemPanel;
 
 public class GradingSystemLayout extends JPanel {
     public GradingSystemLayout() {

@@ -17,7 +17,7 @@ Welcome to **GWAveraged**, the ultimate Grade Weighted Average (GWA) calculator 
 
   ---
   <p>
-    <img src="https://github.com/vyleene/gwacalc/blob/main/docs/images/main_dark.png" height="500px" >
+    <img src="https://github.com/vyleene/gwacalc/blob/main/docs/images/main_dark.png" height="300px" >
     <img src="https://github.com/vyleene/gwacalc/blob/main/docs/images/sys_dark.png" >
   </p>
   
@@ -27,7 +27,7 @@ Welcome to **GWAveraged**, the ultimate Grade Weighted Average (GWA) calculator 
   
   ---
   <p>
-    <img src="https://github.com/vyleene/gwacalc/blob/main/docs/images/main_light.png" height="500px" >
+    <img src="https://github.com/vyleene/gwacalc/blob/main/docs/images/main_light.png" height="300px" >
     <img src="https://github.com/vyleene/gwacalc/blob/main/docs/images/sys_light.png" >
   </p>
 

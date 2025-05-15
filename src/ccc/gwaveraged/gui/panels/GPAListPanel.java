@@ -11,7 +11,6 @@ import java.awt.Insets;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -20,7 +19,6 @@ import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
 import ccc.gwaveraged.gui.abstracts.Panel;
-import ccc.gwaveraged.system.Config;
 import ccc.gwaveraged.system.Subject;
 
 public class GPAListPanel extends Panel {

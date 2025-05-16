@@ -51,7 +51,7 @@ public class GPAConversionPanel extends Panel {
         JLabel subjectLabel = new JLabel("Subject:");
         subjectsComboBox = new JComboBox<>();
 
-        Config.subjects.keySet().forEach(k -> {
+        Config.gradingSystem.keySet().forEach(k -> {
             subjectsComboBox.addItem(k);
         });
 
@@ -191,7 +191,7 @@ public class GPAConversionPanel extends Panel {
             }
 
             Subject subject = new Subject(subjectName, units, prelimsWeight, midtermsWeight, finalsWeight);
-            subject.setGradingSystem(Config.subjects.get(subjectName));
+            subject.setGradingSystem(Config.gradingSystem.get(subjectName));
             subject.setGrade(prelimsGrade, midtermsGrade, finalsGrade);
 
             double gpa = subject.calculateGradePoint();

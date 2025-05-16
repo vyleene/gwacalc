@@ -40,7 +40,7 @@ public class GradingSystemPanel extends Panel {
         JLabel subjectsLabel = new JLabel("Subject:");
         subjectsComboBox = new JComboBox<>();
 
-        Config.subjects.keySet().forEach(k -> {
+        Config.gradingSystem.keySet().forEach(k -> {
             subjectsComboBox.addItem(k);
         });
 
@@ -88,7 +88,7 @@ public class GradingSystemPanel extends Panel {
     }
 
     public void loadPercentages(String subject) {
-        Config.subjects.get(subject).forEach(v -> {
+        Config.gradingSystem.get(subject).forEach(v -> {
             if (v.isEmpty()) {
                 addEntry(0.00, new double[]{0.00, 0.00});
             } else {
@@ -132,7 +132,7 @@ public class GradingSystemPanel extends Panel {
     }
 
     public void removeEntry(List<Double> percentageToPoint, JPanel rowPanel) {
-        Config.subjects.get(subjectsComboBox.getSelectedItem().toString()).remove(percentageToPoint);
+        Config.gradingSystem.get(subjectsComboBox.getSelectedItem().toString()).remove(percentageToPoint);
         percentageList.remove(rowPanel);
         percentageList.revalidate();
         percentageList.repaint();

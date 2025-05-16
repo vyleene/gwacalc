@@ -45,7 +45,7 @@ public class GPAInsertPanel extends Panel {
         JLabel subjectLabel = new JLabel("Subject:");
         subjectsComboBox = new JComboBox<>();
 
-        Config.subjects.keySet().forEach(k -> {
+        Config.gradingSystem.keySet().forEach(k -> {
             subjectsComboBox.addItem(k);
         });
 

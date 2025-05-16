@@ -16,6 +16,7 @@ public class Subject {
     private double finalWeight;
     private List<List<Double>> gradingSystem;
 
+    public static List<String> subjectNames = new ArrayList<>();
     public static List<Subject> subjects = new ArrayList<>();
     
     public Subject(String name, int units, double prelimWeight, double midtermWeight, double finalWeight) {

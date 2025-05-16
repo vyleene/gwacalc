@@ -67,7 +67,7 @@ public class GPAListPanel extends Panel {
     public void startListeners() {
         calculateButton.addActionListener(_ -> {
             if (Subject.subjects.isEmpty()) {
-                this.showErrorMessage("GPA list is empty");
+                Panel.showErrorMessage("GPA list is empty");
                 return;
             }
 
@@ -125,7 +125,14 @@ public class GPAListPanel extends Panel {
     }
 
     public static void addEntry(Subject subject) {
+        if (Subject.subjectNames.contains(subject.getSubjectName())) {
+            Panel.showWarningMessage("Subject: " + subject.getSubjectName() + " already exist in the list.");
+            return;
+        }
+        Subject.subjectNames.add(subject.getSubjectName());
         Subject.subjects.add(subject);
+
+
         JPanel row = new JPanel(new BorderLayout(10, 0));
         row.setBorder(new EmptyBorder(3, 2, 3, 2));
 

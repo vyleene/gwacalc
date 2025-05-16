@@ -165,7 +165,7 @@ public class GPAConversionPanel extends Panel {
             try {
                 subjectName = subjectsComboBox.getSelectedItem().toString();
             } catch (Exception e) {
-                this.showWarningMessage("Must select a subject");
+                Panel.showWarningMessage("Must select a subject");
                 return;
             }
 
@@ -177,7 +177,7 @@ public class GPAConversionPanel extends Panel {
                 midtermsGrade = Double.parseDouble(midtermsField.getText());
                 finalsGrade = Double.parseDouble(finalsField.getText());
             } catch (Exception e) {
-                this.showWarningMessage("Invalid grade(s) format");
+                Panel.showWarningMessage("Invalid grade(s) format");
                 return;
             }
 
@@ -186,7 +186,7 @@ public class GPAConversionPanel extends Panel {
             double finalsWeight = Double.parseDouble(finalsWeightSpinner.getValue().toString());
 
             if (prelimsWeight + midtermsWeight + finalsWeight != 1.00) {
-                this.showWarningMessage("Weights must sum to 1.0 (100%)");
+                Panel.showWarningMessage("Weights must sum to 1.0 (100%)");
                 return;
             }
 
@@ -197,10 +197,10 @@ public class GPAConversionPanel extends Panel {
             double gpa = subject.calculateGradePoint();
 
             if (gpa == -1.00) {
-                this.showErrorMessage("Grading system for the subject: " + subjectName + " is empty");
+                Panel.showErrorMessage("Grading system for the subject: " + subjectName + " is empty");
                 return;
             } else if (gpa == -2.00) {
-                this.showErrorMessage("The following grade: " + subject.calculateGrade() + " does not have a point average");
+                Panel.showErrorMessage("The following grade: " + subject.calculateGrade() + " does not have a point average");
                 return;
             }
 

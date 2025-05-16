@@ -12,7 +12,7 @@ public abstract class Panel extends JPanel implements PanelInterface {
     public abstract void createComponents();
     public abstract void startListeners();
 
-    public void showWarningMessage(String message) {
+    public static void showWarningMessage(String message) {
         javax.swing.JOptionPane.showMessageDialog(
             null,
             message,
@@ -21,7 +21,7 @@ public abstract class Panel extends JPanel implements PanelInterface {
         );
     }
 
-    public void showErrorMessage(String message) {
+    public static void showErrorMessage(String message) {
         javax.swing.JOptionPane.showMessageDialog(
             null,
             message,

@@ -101,7 +101,7 @@ public class GPAInsertPanel extends Panel {
             try {
                 subjectName = subjectsComboBox.getSelectedItem().toString();
             } catch (Exception e) {
-                this.showWarningMessage("Must select a subject");
+                Panel.showWarningMessage("Must select a subject");
                 return;
             }
 
@@ -109,12 +109,12 @@ public class GPAInsertPanel extends Panel {
             try {
                 gpa = Double.parseDouble(gpaTextField.getText());
             } catch (Exception e) {
-                this.showWarningMessage("Invalid GPA format");
+                Panel.showWarningMessage("Invalid GPA format");
                 return;
             }
 
             if (gpa < 1.00 || gpa > 5.00) {
-                this.showWarningMessage("GPA must be in the range (1.00 - 5.00)");
+                Panel.showWarningMessage("GPA must be in the range (1.00 - 5.00)");
                 return;
             }
 

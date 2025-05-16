@@ -3,8 +3,6 @@ package ccc.gwaveraged.system;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -35,9 +33,7 @@ public class Config {
     public static void initialize() {
         JSONParser parser = new JSONParser();
         try {
-            Path filePath = Paths.get("config.json").toAbsolutePath();
-            
-            FileReader reader = new FileReader(filePath.toString());
+            FileReader reader = new FileReader("config.json");
             config = (JSONObject) parser.parse(reader);
 
             isDarkMode = (boolean) config.get("isDarkMode");

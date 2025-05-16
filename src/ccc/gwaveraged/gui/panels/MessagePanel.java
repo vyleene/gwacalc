@@ -61,6 +61,7 @@ public class MessagePanel extends Panel {
             Config.isDarkMode = !Config.isDarkMode;
     
             GWAveraged.setLaF();
+            Config.updateTheme();
 
             toggleButton.setIcon(new ImageIcon((Config.isDarkMode) ? moon : sun));
 

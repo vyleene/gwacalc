@@ -156,6 +156,7 @@ public class GPAListPanel extends Panel {
     }
 
     public static void removeEntry(Subject subject, JPanel row) {
+        Subject.subjectNames.remove(subject.getSubjectName());
         Subject.subjects.remove(subject);
         entryList.remove(row);
         entryList.revalidate();

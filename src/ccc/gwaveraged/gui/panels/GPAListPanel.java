@@ -81,14 +81,14 @@ public class GPAListPanel extends Panel {
             }
 
             double gwa = totalWeightedPoints / totalUnits;
-
-            showDialog(gwa);
-
-            MessagePanel.setMessage(String.format("GWA: %.2f", gwa));
+            
+            showGWA(gwa);
         });
     }
 
-    private void showDialog(double gwa) {
+    private void showGWA(double gwa) {
+        MessagePanel.setMessage(String.format("GWA: %.2f", gwa));
+
         String message = "", title = "";
 
         ImageIcon icon = new ImageIcon();
@@ -106,7 +106,7 @@ public class GPAListPanel extends Panel {
                 title = "Hanging on a thread";
                 message = "Hey, at least you survived!";
                 icon = new ImageIcon(ImageIO.read(getClass().getResource("/resources/icons/sweat.png")).getScaledInstance(60, 60, Image.SCALE_SMOOTH));
-            } else {
+            } else if (gwa > 3.00) {
                 title = "Ouch";
                 message = "Better luck next time!";
                 icon = new ImageIcon(ImageIO.read(getClass().getResource("/resources/icons/sad.png")).getScaledInstance(60, 60, Image.SCALE_SMOOTH));

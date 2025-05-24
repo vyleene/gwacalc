@@ -94,7 +94,7 @@ public class GPAListPanel extends Panel {
         ImageIcon icon = new ImageIcon();
         
         try {
-            if (gwa <= 1.00 && gwa <= 1.75) {
+            if (gwa <= 1.75) {
                 title = "Congratulations!";
                 message = "Your hard work has paid off! Keep it up!";
                 icon = new ImageIcon(ImageIO.read(getClass().getResource("/resources/icons/congrats.png")).getScaledInstance(60, 60, Image.SCALE_SMOOTH));
